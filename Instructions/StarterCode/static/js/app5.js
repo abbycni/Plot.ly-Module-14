@@ -124,11 +124,11 @@ Plotly.newPlot("bar", [barData], barLayout);
         axis: {range: [0,10], dtick: 2},
         bar: {color: "white"},
         steps: [
-          {range: [0,2], color: "red"},
-          {range: [2,4], color: "orange"},
-          {range: [4,6], color: "yellow"},
-          {range: [6,8], color: "yellowgreen"},
-          {range: [8,10], color: "green"}
+          {range: [0,2], color: "purple"},
+          {range: [2,4], color: "lightblue"},
+          {range: [4,6], color: "blue"},
+          {range: [6,8], color: "green"},
+          {range: [8,10], color: "yellow"}
         ],
       }
     };
