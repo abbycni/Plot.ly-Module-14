@@ -1,7 +1,7 @@
 
 d3.json("samples.json").then(function(data){
     // Code from your callback goes here...
-    console.log(data.metadata);
+   console.log(data.metadata);
   });
 
   function optionChanged(sampleid){
@@ -30,7 +30,7 @@ function demo(index) {
         index=parseInt(index) 
       var meta = data.metadata[index];
         console.log(meta,index)
-        console.log(meta.id)
+       console.log(meta.id)
        // index=parseInt(index)
         var demographics  = d3.select("#sample-metadata");
         demographics.html("")
@@ -57,11 +57,13 @@ function buildCharts(sampleid) {
   // Use d3.json to load and retrieve the samples.json file
   d3.json("samples.json").then((data) => {
     var Result= data.samples[sampleid];
+    var wfreq2=data.metadata[sampleid]
+    console.log(wfreq2.wfreq);
    // var resultArray = samples.filter(sampleObj => sampleObj.id == sampleid);
    // var Result = resultArray[0];
     var otuID = Result.otu_ids;
     var otuLabel = Result.otu_labels;
-    console.log(otuLabel);
+   // console.log(otuLabel);
     var sampleValue = Result.sample_values.map((value) => parseInt(value));
     var yticks = otuID.slice(0,10).map((id) => "OTU " + id).reverse();
     // Create the trace for the bar chart.
@@ -125,14 +127,16 @@ var bubbleData = {
   var metadata = data.metadata;
  // var resultArray = metadata.filter(sampleObj => sampleObj.id == sampleid);
   //var Result = resultArray[0];
-  var wFreq = parseFloat(Result.wfreq);
+  var wFreq = parseFloat(wfreq2.wfreq);
+  console.log(wFreq);
+  
   var gaugeData = {
     type: "indicator",
     value: wFreq,
     mode: "gauge+number",
     gauge: {
       axis: {range: [0,10], dtick: 2},
-      bar: {color: "black"},
+      bar: {color: "white"},
       steps: [
         {range: [0,2], color: "purple"},
         {range: [2,4], color: "blue"},
